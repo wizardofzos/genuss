@@ -1,3 +1,4 @@
+#!/usr/bin/python
 '''
     File name: genuss.py
     Author: wizardofzos
@@ -22,7 +23,7 @@
 
 
 
-with open('screen.txt') as screen:
+with open('screen-zdevops.txt') as screen:
     screen_data = screen.read()
 screen.close
 
@@ -76,20 +77,23 @@ for line in screen_data.split('\n'):
     while c < len(line):
         
         # check for color-codes (=!R, =!B, =!Y for Red Blue Yellow)
-        if line[c:c+3] == "=!R":
-            print red
+        if line[c:c+3] == "=!Y":
+            print yellow
             c = c + 3
         if line[c:c+3] == "=!B":
             print blue
             c = c + 3
-        if line[c:c+3] == "=!Y":
-            print yellow
+        if line[c:c+3] == "=!G":
+            print green
+            c = c + 3
+        if line[c:c+3] == "=!C":
+            print black
             c = c + 3
         char = line[c:c+1]
         try:
     	   print "         DC    X'%s'" % hexval[char]
         except KeyError:
-            print "Error -> Key >%s< not found" % c
+            print "Error -> Key >%s< not found (row %s)" % (c, row)
             print c.encode('hex')
         c += 1
     row += 1
