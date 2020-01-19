@@ -1,0 +1,16 @@
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+         MACRO
+&NAME    SCREEN &MSG=�,&TEXT=�
+         AIF   ('&MSG' EQ '�' OR '&TEXT' EQ '�').END
+         LCLC  &BFNAME,&BFSTART,&BFEND
+&BFNAME  SETC  'BUF'.'&MSG'
+&BFBEGIN SETC  '&BFNAME'.'B'
+&BFEND   SETC  '&BFNAME'.'E'
+.BEGIN   DS    0F
+&BFNAME  DC    AL2(&BFEND-&BFBEGIN)        MESSAGE LENGTH
+&BFBEGIN EQU   *                       START OF MESSAGE
+         DC    X'F57A'                 ERASE/WRITE, WCC
+         DC    X'110000'               SBA, 0000     ROW 00 COL 01
+         DC    X'290242F6C0E0'         SFE, PROTECTED/NORMAL/YELLOW
+*              NEXT LINES DISPLAYS LOGOs
+
