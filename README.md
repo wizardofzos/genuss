@@ -10,4 +10,9 @@ USSTAB generator...
 1. Make sure genuss.py takes YOUR ascii-art as input
 1. Run genuss.py and have it output to 'middle'
 1. cat HEAD middle TAIL > my-uss-tab.asm
-1. Compile that and add to your TN3270 config ;)
+1. FTP that (ASCII) to your trusted Mainframe
+1. Compile it and add to your TN3270 config ;)
+
+Should look like this when using the provided screen-zdevops.txt
+
+![alt text](https://raw.githubusercontent.com/wizardofzos/genuss/master/zdevops-usstab.png)
