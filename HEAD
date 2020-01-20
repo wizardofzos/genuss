@@ -1,7 +1,7 @@
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
          MACRO
-&NAME    SCREEN &MSG=�,&TEXT=�
-         AIF   ('&MSG' EQ '�' OR '&TEXT' EQ '�').END
+&NAME    SCREEN &MSG=.,&TEXT=.
+         AIF   ('&MSG' EQ '.' OR '&TEXT' EQ '.').END
          LCLC  &BFNAME,&BFSTART,&BFEND
 &BFNAME  SETC  'BUF'.'&MSG'
 &BFBEGIN SETC  '&BFNAME'.'B'
