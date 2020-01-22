@@ -23,6 +23,7 @@
 
 
 
+
 with open('screen-zdevops.txt') as screen:
     screen_data = screen.read()
 screen.close
@@ -71,30 +72,30 @@ for line in screen_data.split('\n'):
         a  = 79 - len(line)
         line = line + (a*" ")
     # Print a positioning control to go to next row...
-    print "         DC    X'11',AL2(((%d-1)*80)+(01-1))" % row
+    print("         DC    X'11',AL2(((%d-1)*80)+(01-1))" % row)
     # Change the full line into EBCDIC X-codes...
     c = 0
     while c < len(line):
         
         # check for color-codes (=!R, =!B, =!Y for Red Blue Yellow)
         if line[c:c+3] == "=!Y":
-            print yellow
+            print(yellow)
             c = c + 3
         if line[c:c+3] == "=!B":
-            print blue
+            print(blue)
             c = c + 3
         if line[c:c+3] == "=!G":
-            print green
+            print(green)
             c = c + 3
         if line[c:c+3] == "=!C":
-            print black
+            print(black)
             c = c + 3
         char = line[c:c+1]
         try:
-    	   print "         DC    X'%s'" % hexval[char]
+    	    print("         DC    X'%s'" % hexval[char])
         except KeyError:
-            print "Error -> Key >%s< not found (row %s)" % (c, row)
-            print c.encode('hex')
+            print("Error -> Key >%s< not found (row %s)" % (c, row))
+            print(c.encode('hex'))
         c += 1
     row += 1
 
