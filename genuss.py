@@ -24,7 +24,7 @@
 
 
 
-with open('screen-zdevops.txt') as screen:
+with open('screen-ecorp.txt') as screen:
     screen_data = screen.read()
 screen.close
 
@@ -38,6 +38,8 @@ char   = {}
 
 for line in ebcdic.split('\n'):
 	vals = line.split('\t')
+	if len(vals) < 3:
+		continue	
 	hexval[vals[2]] = vals[1]
         
 fulldc = ""
@@ -89,6 +91,21 @@ for line in screen_data.split('\n'):
             c = c + 3
         if line[c:c+3] == "=!C":
             print(black)
+            c = c + 3
+        if line[c:c+3] == "=!R":
+            print(red)
+            c = c + 3
+        if line[c:c+3] == "=!W":
+            print(white)
+            c = c + 3
+        if line[c:c+3] == "=!C":
+            print(black)
+            c = c + 3
+        if line[c:c+3] == "=!Y":
+            print(yellow)
+            c = c + 3
+        if line[c:c+3] == "=!P":
+            print(pink)
             c = c + 3
         char = line[c:c+1]
         try:
