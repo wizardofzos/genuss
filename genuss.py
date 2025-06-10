@@ -24,7 +24,7 @@
 
 
 
-with open('screen-ecorp.txt') as screen:
+with open('screen-aws.txt') as screen:
     screen_data = screen.read()
 screen.close
 
